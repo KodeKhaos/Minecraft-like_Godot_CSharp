@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp Minecraft Test", "CSharp Minecraft Test.csproj", "{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5674053-0078-4DFF-83B8-0845AF01E160}
+	EndGlobalSection
+EndGlobal
