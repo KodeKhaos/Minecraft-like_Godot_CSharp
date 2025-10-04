@@ -1,0 +1,151 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3ce5a8uolrwp"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/InventorySlot.cs" id="1_744v1"]
+[ext_resource type="Texture2D" uid="uid://dswd2isskfmyr" path="res://assets/Icons/icon10.png" id="2_x5hgj"]
+[ext_resource type="FontFile" uid="uid://bi04iecmbt37l" path="res://assets/Fonts/ARCADECLASSIC.TTF" id="3_8lmjw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbdgs"]
+
+[node name="Inventory_Slot" type="Control" node_paths=PackedStringArray("ItemIcon", "ItemQuantity", "ItemButton", "DetailsPanel")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_744v1")
+ItemIcon = NodePath("MarginContainer/InnerBorder/ItemIcon")
+ItemQuantity = NodePath("MarginContainer/InnerBorder/ItemQuantity")
+ItemButton = NodePath("MarginContainer/ItemButton")
+DetailsPanel = NodePath("DetailsPanel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 151.0
+
+[node name="InnerBorder" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.505882, 0.505882, 0.505882, 0.639216)
+
+[node name="ItemIcon" type="Sprite2D" parent="MarginContainer/InnerBorder"]
+position = Vector2(75, 75)
+scale = Vector2(4, 4)
+texture = ExtResource("2_x5hgj")
+
+[node name="ItemQuantity" type="Label" parent="MarginContainer/InnerBorder"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 83.0
+offset_right = 66.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8lmjw")
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 2
+
+[node name="Border" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="OuterBorder1" type="ColorRect" parent="MarginContainer/Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="OuterBorder2" type="ColorRect" parent="MarginContainer/Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 145.0
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="OuterBorder3" type="ColorRect" parent="MarginContainer/Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_right = -145.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.57079
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="OuterBorder4" type="ColorRect" parent="MarginContainer/Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 151.0
+offset_right = -145.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.57079
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="ItemButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kbdgs")
+action_mode = 0
+
+[node name="DetailsPanel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+offset_top = -112.0
+offset_right = 253.0
+offset_bottom = -10.0
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="ItemName" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+offset_left = 5.0
+offset_right = 138.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8lmjw")
+theme_override_font_sizes/font_size = 22
+
+[node name="ItemType" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -32.5
+offset_right = 146.0
+offset_bottom = -7.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.482353, 0.662745, 1, 1)
+theme_override_fonts/font = ExtResource("3_8lmjw")
+theme_override_font_sizes/font_size = 22
+
+[node name="ItemEffect" type="Label" parent="DetailsPanel"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 32.0
+offset_right = 244.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0, 0.12549, 1, 1)
+theme_override_constants/line_spacing = -12
+theme_override_fonts/font = ExtResource("3_8lmjw")
+theme_override_font_sizes/font_size = 22
+
+[connection signal="gui_input" from="MarginContainer/ItemButton" to="." method="ItemButtonPressed"]
+[connection signal="mouse_entered" from="MarginContainer/ItemButton" to="." method="ItemButtonMouseEntered"]
+[connection signal="mouse_exited" from="MarginContainer/ItemButton" to="." method="ItemButtonMouseExited"]

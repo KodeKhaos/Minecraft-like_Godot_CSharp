@@ -1,0 +1,445 @@
+[gd_scene load_steps=90 format=3 uid="uid://by1463s7fvr72"]
+
+[ext_resource type="Shader" path="res://Shaders/Cloud.gdshader" id="1_e44px"]
+[ext_resource type="Script" path="res://Scripts/Block Managment/BlockManager.cs" id="2_vb4tf"]
+[ext_resource type="Texture2D" uid="uid://ddvgc8tu8ywqk" path="res://assets/Icons/icon31.png" id="3_2gump"]
+[ext_resource type="Script" path="res://Scripts/Block Managment/Block.cs" id="3_wwujf"]
+[ext_resource type="Texture2D" uid="uid://clab2l1ei75x4" path="res://BlockTextures/stone_minecraft.png" id="4_lb34q"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="4_n2kog"]
+[ext_resource type="Texture2D" uid="uid://cpsjaebpas6w4" path="res://assets/Icons/icon01.png" id="5_mgho0"]
+[ext_resource type="Texture2D" uid="uid://bus1r3fqf6p2f" path="res://BlockTextures/dirt.png" id="5_snrnu"]
+[ext_resource type="Texture2D" uid="uid://dao8a1oo7tvba" path="res://assets/Icons/icon34.png" id="6_bsxjp"]
+[ext_resource type="Texture2D" uid="uid://dg3quftxkss1w" path="res://BlockTextures/grass_side.png" id="6_u8uss"]
+[ext_resource type="Texture2D" uid="uid://ca61818woqdwl" path="res://BlockTextures/grass_top.png" id="7_cvrkb"]
+[ext_resource type="Texture2D" uid="uid://bj0sjnlh2wrio" path="res://BlockTextures/oak_log_top.png" id="8_autfg"]
+[ext_resource type="Texture2D" uid="uid://k0utyesspyj2" path="res://BlockTextures/oak_log_side.png" id="9_nkyqa"]
+[ext_resource type="Texture2D" uid="uid://ci0ali8trhhdi" path="res://BlockTextures/oak_planks.png" id="10_8gweb"]
+[ext_resource type="Texture2D" uid="uid://ch4slaxsdo4vs" path="res://BlockTextures/oak_leaves_minecraft.png" id="11_p2sp5"]
+[ext_resource type="Texture2D" uid="uid://bw3aljeh1ckk0" path="res://BlockTextures/Bedrock_Minecraft.png" id="12_ilpxd"]
+[ext_resource type="Texture2D" uid="uid://dfeqmky5ohk3e" path="res://BlockTextures/Coal_Ore_Minecraft.png" id="13_bxqyn"]
+[ext_resource type="Texture2D" uid="uid://dpd5oj2re6hp" path="res://BlockTextures/Copper_Ore_Minecraft.png" id="14_qrhul"]
+[ext_resource type="Texture2D" uid="uid://b4u7uauq6hye6" path="res://BlockTextures/Iron_Ore_Minecraft.png" id="15_h7t3j"]
+[ext_resource type="Texture2D" uid="uid://b5cbqn4wxrvky" path="res://BlockTextures/Gold_Ore_Minecraft.png" id="16_ftyy8"]
+[ext_resource type="Texture2D" uid="uid://fwfme5wmxyix" path="res://BlockTextures/Diamond_Ore_Minecraft.png" id="17_tm1jb"]
+[ext_resource type="Texture2D" uid="uid://cl5cktmn7uru6" path="res://BlockTextures/Emerald_Ore_Minecraft.png" id="18_avevv"]
+[ext_resource type="Texture2D" uid="uid://6i2hktdd7tea" path="res://BlockTextures/Deepslate_Coal_Ore_Minecraft.png" id="19_sohkn"]
+[ext_resource type="Texture2D" uid="uid://hi7x4u84is0e" path="res://BlockTextures/Deepslate_Copper_Ore_Minecraft.png" id="20_4g1k6"]
+[ext_resource type="Texture2D" uid="uid://dkf0ejhsyh3ot" path="res://BlockTextures/Deepslate_Iron_Ore_Minecraft.png" id="21_2ftao"]
+[ext_resource type="Texture2D" uid="uid://cmcfp4l1gddy6" path="res://BlockTextures/Deepslate_Gold_Ore_Minecraft.png" id="22_sy76i"]
+[ext_resource type="Texture2D" uid="uid://b5bct3ku6gmae" path="res://BlockTextures/Deepslate_Diamond_Ore_Minecraft.png" id="23_07tbb"]
+[ext_resource type="Texture2D" uid="uid://dva5ui76u5l3l" path="res://BlockTextures/Deepslate_Emerald_Ore_Minecraft.png" id="24_w4imy"]
+[ext_resource type="Texture2D" uid="uid://bqqge87yyn374" path="res://BlockTextures/Deepslate_Top_Minecraft.png" id="25_vprdf"]
+[ext_resource type="Texture2D" uid="uid://cudyj3ku0dbna" path="res://BlockTextures/Deepslate_Side_Minecraft.png" id="26_yg55p"]
+[ext_resource type="Texture2D" uid="uid://bwkvtpq0u4lnv" path="res://BlockTextures/Granite_Minecraft.png" id="27_a3t3k"]
+[ext_resource type="Texture2D" uid="uid://un3q4d14xpn" path="res://BlockTextures/Diorite_Minecraft.png" id="28_nm5aj"]
+[ext_resource type="Texture2D" uid="uid://cdqmx4g8egyy8" path="res://BlockTextures/Andesite_Minecraft.png" id="29_0u3xi"]
+[ext_resource type="Texture2D" uid="uid://w5n5syvdfqvr" path="res://BlockTextures/Tuff_Minecraft.png" id="30_hsbli"]
+[ext_resource type="Script" path="res://Scripts/Terrain Generation/TerrainManager.cs" id="31_ph5di"]
+[ext_resource type="Script" path="res://Scripts/Chunk Managment/ChunkManager.cs" id="32_5biot"]
+[ext_resource type="PackedScene" uid="uid://btpuwed4e84vd" path="res://Scenes/Chunks/Chunk.tscn" id="33_kcyoy"]
+[ext_resource type="PackedScene" uid="uid://dpwqf2x3jqvwq" path="res://Scenes/Entities/Player.tscn" id="34_yfq04"]
+[ext_resource type="Script" path="res://Scripts/Inventory/PossibleItems.cs" id="35_ec3pn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pi27s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gkayu"]
+seamless = true
+noise = SubResource("FastNoiseLite_pi27s")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_en8q6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qy8ab"]
+seamless = true
+noise = SubResource("FastNoiseLite_en8q6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyhow"]
+shader = ExtResource("1_e44px")
+shader_parameter/sky_top_color = Color(0.356863, 0.647059, 1, 1)
+shader_parameter/sky_horizon_color = Color(0.611765, 0.741176, 0.996078, 1)
+shader_parameter/sky_curve = 0.27991
+shader_parameter/sky_energy = 1.0
+shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
+shader_parameter/ground_bottom_color = Color(0.611765, 0.741176, 0.996078, 1)
+shader_parameter/ground_horizon_color = Color(0.611765, 0.741176, 0.996078, 1)
+shader_parameter/ground_curve = 0.02
+shader_parameter/ground_energy = 1.0
+shader_parameter/sun_angle_max = 0.523599
+shader_parameter/sun_curve = 0.15
+shader_parameter/cloud_direction = Vector2(1, 0.5)
+shader_parameter/cloud_direction2 = Vector2(-0.5, 0.3)
+shader_parameter/cloud_scale = Vector2(0.075, 0.075)
+shader_parameter/cloud_distance = 0.07
+shader_parameter/cloud_speed = 0.02
+shader_parameter/cloud_speed2 = 0.01
+shader_parameter/cloud_texture = SubResource("NoiseTexture2D_gkayu")
+shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_qy8ab")
+
+[sub_resource type="Sky" id="Sky_5s20b"]
+sky_material = SubResource("ShaderMaterial_uyhow")
+
+[sub_resource type="Environment" id="Environment_e6gji"]
+background_mode = 2
+sky = SubResource("Sky_5s20b")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.45
+reflected_light_source = 1
+fog_light_color = Color(0.611765, 0.741176, 0.996078, 1)
+
+[sub_resource type="Resource" id="Resource_ws8a0"]
+script = ExtResource("4_n2kog")
+ItemName = "Pink Fruit"
+ItemType = "Consumable"
+MaxStackSize = 64
+Texture = ExtResource("3_2gump")
+Attributes = {
+"amount": 10,
+"duration": 0,
+"effect": "restore hunger"
+}
+
+[sub_resource type="Resource" id="Resource_71ekx"]
+script = ExtResource("4_n2kog")
+ItemName = "Health Potion I"
+ItemType = "Consumable"
+MaxStackSize = 16
+Texture = ExtResource("5_mgho0")
+Attributes = {
+"amount": 25,
+"duration": 0,
+"effect": "heal"
+}
+
+[sub_resource type="Resource" id="Resource_kotl8"]
+script = ExtResource("4_n2kog")
+ItemName = "Iron Pickaxe"
+ItemType = "Tool"
+MaxStackSize = 1
+Texture = ExtResource("6_bsxjp")
+Attributes = {
+"damage": 5,
+"durability": 50,
+"tool_type": "pickaxe"
+}
+
+[sub_resource type="Resource" id="Resource_fawvm"]
+script = ExtResource("4_n2kog")
+ItemName = "Stone"
+ItemType = "Placeable"
+MaxStackSize = 64
+Texture = ExtResource("4_lb34q")
+Attributes = {
+"block": "stone"
+}
+
+[sub_resource type="Resource" id="Resource_n0ext"]
+script = ExtResource("4_n2kog")
+ItemName = "Dirt"
+ItemType = "Placeable"
+MaxStackSize = 64
+Texture = ExtResource("5_snrnu")
+Attributes = {
+"block": "dirt"
+}
+
+[sub_resource type="Resource" id="Resource_s2eg7"]
+script = ExtResource("3_wwujf")
+BreakTime = -1.0
+Transparent = true
+
+[sub_resource type="Resource" id="Resource_gv7nk"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("4_lb34q")
+BreakTime = 12.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_c70d6"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("5_snrnu")
+BreakTime = 0.4
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_ajgw4"]
+script = ExtResource("3_wwujf")
+TextureTop = ExtResource("7_cvrkb")
+TextureSide = ExtResource("6_u8uss")
+TextureBottom = ExtResource("5_snrnu")
+BreakTime = 0.5
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_my50y"]
+script = ExtResource("3_wwujf")
+TextureTop = ExtResource("8_autfg")
+TextureSide = ExtResource("9_nkyqa")
+TextureBottom = ExtResource("8_autfg")
+BreakTime = 4.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_hwia8"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("10_8gweb")
+BreakTime = 4.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_kuijw"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("11_p2sp5")
+BreakTime = 0.2
+Transparent = true
+
+[sub_resource type="Resource" id="Resource_pcv6q"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("12_ilpxd")
+BreakTime = -1.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_vq0cw"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("13_bxqyn")
+BreakTime = 13.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_hvdrv"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("14_qrhul")
+BreakTime = 14.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_7cb3j"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("15_h7t3j")
+BreakTime = 15.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_j281h"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("16_ftyy8")
+BreakTime = 16.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_kmxyc"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("17_tm1jb")
+BreakTime = 17.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_30wka"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("18_avevv")
+BreakTime = 17.5
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_xpowx"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("19_sohkn")
+BreakTime = 19.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_8vmbq"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("20_4g1k6")
+BreakTime = 20.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_nsnm7"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("21_2ftao")
+BreakTime = 21.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_pj62s"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("22_sy76i")
+BreakTime = 22.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_emyms"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("23_07tbb")
+BreakTime = 23.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_xwtup"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("24_w4imy")
+BreakTime = 23.5
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_bo1ta"]
+script = ExtResource("3_wwujf")
+TextureTop = ExtResource("25_vprdf")
+TextureSide = ExtResource("26_yg55p")
+TextureBottom = ExtResource("25_vprdf")
+BreakTime = 18.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_ge5db"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("27_a3t3k")
+BreakTime = 10.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_6qox0"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("28_nm5aj")
+BreakTime = 10.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_xxhun"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("29_0u3xi")
+BreakTime = 10.0
+Transparent = false
+
+[sub_resource type="Resource" id="Resource_kjjsq"]
+script = ExtResource("3_wwujf")
+TextureSide = ExtResource("30_hsbli")
+BreakTime = 9.0
+Transparent = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yjm84"]
+frequency = 0.0068
+fractal_octaves = 4
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h8gpp"]
+seed = 13
+frequency = 0.026
+fractal_type = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_urnpu"]
+seed = 647
+frequency = 0.0332
+fractal_type = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yv6fa"]
+seed = 702432
+frequency = 0.028
+fractal_type = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ea46x"]
+seed = 69
+frequency = 0.032
+fractal_type = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e5mq6"]
+noise_type = 3
+frequency = 0.0369
+fractal_octaves = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_avc4q"]
+fractal_type = 2
+fractal_octaves = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gdxn4"]
+noise_type = 0
+frequency = 0.0019
+fractal_octaves = 6
+fractal_gain = 0.9
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xa8tl"]
+frequency = 0.1
+fractal_octaves = 1
+fractal_lacunarity = 1.945
+fractal_gain = 0.895
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yjgjl"]
+seed = 2
+frequency = 0.12
+fractal_octaves = 1
+fractal_lacunarity = 1.945
+fractal_gain = 0.895
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nglol"]
+seed = 4
+frequency = 0.11
+fractal_octaves = 1
+fractal_lacunarity = 1.945
+fractal_gain = 0.895
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dbnwj"]
+seed = 6
+frequency = 0.096
+fractal_octaves = 1
+fractal_lacunarity = 1.945
+fractal_gain = 0.895
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uutrk"]
+seed = 8
+frequency = 0.091
+fractal_octaves = 1
+fractal_lacunarity = 1.945
+fractal_gain = 0.895
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.747834, -0.361257, 0.55699, -0.218106, 0.658724, 0.720078, -0.627036, -0.659982, 0.413824, 0, 56.2923, 0)
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_reverse_cull_face = true
+directional_shadow_blend_splits = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e6gji")
+
+[node name="ItemManager" type="Node" parent="."]
+script = ExtResource("35_ec3pn")
+PossibleItemsList = [SubResource("Resource_ws8a0"), SubResource("Resource_71ekx"), SubResource("Resource_kotl8"), SubResource("Resource_fawvm"), SubResource("Resource_n0ext")]
+PossibleItemsDict = {
+"Dirt": SubResource("Resource_n0ext"),
+"Health Potion I": SubResource("Resource_71ekx"),
+"Iron Pickaxe": SubResource("Resource_kotl8"),
+"Pink Fruit": SubResource("Resource_ws8a0"),
+"Stone": SubResource("Resource_fawvm")
+}
+
+[node name="BlockManager" type="Node" parent="."]
+script = ExtResource("2_vb4tf")
+Air = SubResource("Resource_s2eg7")
+Stone = SubResource("Resource_gv7nk")
+Dirt = SubResource("Resource_c70d6")
+Grass = SubResource("Resource_ajgw4")
+OakLog = SubResource("Resource_my50y")
+OakPlank = SubResource("Resource_hwia8")
+OakLeaves = SubResource("Resource_kuijw")
+Bedrock = SubResource("Resource_pcv6q")
+CoalOre = SubResource("Resource_vq0cw")
+CopperOre = SubResource("Resource_hvdrv")
+IronOre = SubResource("Resource_7cb3j")
+GoldOre = SubResource("Resource_j281h")
+DiamondOre = SubResource("Resource_kmxyc")
+EmeraldOre = SubResource("Resource_30wka")
+DeepslateCoalOre = SubResource("Resource_xpowx")
+DeepslateCopperOre = SubResource("Resource_8vmbq")
+DeepslateIronOre = SubResource("Resource_nsnm7")
+DeepslateGoldOre = SubResource("Resource_pj62s")
+DeepslateDiamondOre = SubResource("Resource_emyms")
+DeepslateEmeraldOre = SubResource("Resource_xwtup")
+Deepslate = SubResource("Resource_bo1ta")
+Granite = SubResource("Resource_ge5db")
+Diorite = SubResource("Resource_6qox0")
+Andesite = SubResource("Resource_xxhun")
+Tuff = SubResource("Resource_kjjsq")
+
+[node name="TerrainManager" type="Node" parent="."]
+script = ExtResource("31_ph5di")
+LandscapeNoise = SubResource("FastNoiseLite_yjm84")
+DeepslateLayer = 42
+GraniteNoise = SubResource("FastNoiseLite_h8gpp")
+DioriteNoise = SubResource("FastNoiseLite_urnpu")
+AndesiteNoise = SubResource("FastNoiseLite_yv6fa")
+TuffNoise = SubResource("FastNoiseLite_ea46x")
+CaveShapeNoise = SubResource("FastNoiseLite_e5mq6")
+CaveWormNoise = SubResource("FastNoiseLite_avc4q")
+CaveMaskNoise = SubResource("FastNoiseLite_gdxn4")
+CoalOreNoise = SubResource("FastNoiseLite_xa8tl")
+IronOreNoise = SubResource("FastNoiseLite_yjgjl")
+CopperOreNoise = SubResource("FastNoiseLite_nglol")
+GoldOreNoise = SubResource("FastNoiseLite_dbnwj")
+DiamondOreNoise = SubResource("FastNoiseLite_uutrk")
+
+[node name="ChunkManager" type="Node" parent="."]
+script = ExtResource("32_5biot")
+ChunkScene = ExtResource("33_kcyoy")
+
+[node name="Player" parent="." instance=ExtResource("34_yfq04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
