@@ -1,6 +1,10 @@
 using Godot;
 using System.Collections.Generic;
 
+/*
+	Singleton that manages the player's inventory and hotbar.
+*/
+
 public partial class InventoryGlobal : Node
 {
 	[Signal] public delegate void ToggleInventoryEventHandler();

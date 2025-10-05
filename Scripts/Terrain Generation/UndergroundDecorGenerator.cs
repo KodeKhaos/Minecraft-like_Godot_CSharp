@@ -2,6 +2,10 @@ using Godot;
 using System.Linq;
 using static TerrainManager;
 
+/*
+	Handles underground decoration such as deepslate, granite, diorite, andesite, and tuff.
+*/
+
 public class UndergroundDecorGenerator : ITerrainGeneratorStep
 {
 	private int _deepslateLayer, _width, _height, _depth;

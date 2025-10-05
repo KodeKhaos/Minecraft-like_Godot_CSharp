@@ -3,6 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+
+/*
+ * BlockManager is responsible for managing all block types and their textures.
+ * 
+ * It stores all the blocks in the game and creates a texture atlas.
+ */
+
 [Tool]
 public partial class BlockManager : Node
 {

@@ -1,6 +1,11 @@
 using Godot;
 using Godot.Collections;
 
+/* 
+ * PossibleItems holds a list and dictionary of all possible items in the game.
+ * This is used to look up item data when adding items to the inventory, etc.
+ */
+
 [Tool]
 public partial class PossibleItems : Node
 {

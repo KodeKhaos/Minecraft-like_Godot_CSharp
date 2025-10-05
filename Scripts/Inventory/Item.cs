@@ -2,6 +2,12 @@ using Godot;
 using Godot.Collections;
 using System;
 
+/* 
+ * Item represents a type of item that can be stored in the player's inventory.
+ * Each item has a name, type, maximum stack size, texture, and a dictionary of attributes.
+ * Inside Attributes, you can store any additional data relevant to the item, such as durability, enchantments, etc.
+ */
+
 [Tool]
 [GlobalClass]
 public partial class Item : Resource

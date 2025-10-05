@@ -1,6 +1,9 @@
 using Godot;
 using static TerrainManager;
 
+/*
+	Handles the very top layer of terrain generation, converting the top layer of stone to grass and dirt.
+*/
 public class SurfaceBaseGenerator : ITerrainGeneratorStep
 {
 	private int _width, _height, _depth;

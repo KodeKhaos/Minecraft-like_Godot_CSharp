@@ -1,6 +1,18 @@
 using Godot;
 using static TerrainManager;
 
+/* 
+    Cave Carving Generation Step
+    This step carves out caves in the terrain using 3D noise functions.
+    It uses a combination of cave shape noise, cave worm noise, and a cave mask to determine where to carve out caves.
+    The cave mask ensures that caves are more likely to appear at lower altitudes.
+    Cave Shape Noise: Determines the general shape and distribution of caves.
+    Cave Worm Noise: Adds additional detail and variation to the caves.
+    Cave Mask: Controls the vertical distribution of caves, making them more likely to appear at lower altitudes.
+    The parameters for the noise functions can be adjusted to create different styles of caves.
+    But please, do not touch the parameters here, unless you know what you are doing. It took ages to find a good balance.
+*/
+
 public class CaveCarvingGenerator : ITerrainGeneratorStep
 {
     private FastNoiseLite _caveShapeNoise;

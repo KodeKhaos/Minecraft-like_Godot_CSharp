@@ -4,6 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
+/*
+ * Manages all chunks in the world, including loading, unloading, and updating them based on the player's position.
+ * Uses a separate thread to handle chunk updates to avoid blocking the main thread.
+ * 
+ * To notice:
+ * In the future, I will change the way chunks are managed, in terms of getting their piece of world, to fix the culling issues.
+ * I want to have a list of all the chunks' terrain data in the ChunkManager, so that chunks can easily access it when needed.
+ */
+
 [Tool]
 public partial class ChunkManager : Node
 {

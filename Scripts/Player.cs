@@ -1,6 +1,12 @@
 using Godot;
 using System;
 
+/* 
+ * Player character script
+ * It's very basic and can be improved a lot.
+ * In the future, I want to add features like sprinting, crouching, swimming, flying (in creative mode (if I add one)), and more in a State Machine.
+ * maybe even add animations when doing stuff.
+ */
 public partial class Player : CharacterBody3D
 {
 	[Export] public CollisionShape3D collisionShape { get; set; }

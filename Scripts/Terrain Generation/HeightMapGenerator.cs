@@ -1,6 +1,11 @@
 using Godot;
 using static TerrainManager;
 
+/*
+	Handles the generation of the heightmap using noise.
+    
+    Its the most basic step, and should be called first.
+*/
 public class HeightmapGenerator : ITerrainGeneratorStep
 {
 	private FastNoiseLite _landscapeNoise;

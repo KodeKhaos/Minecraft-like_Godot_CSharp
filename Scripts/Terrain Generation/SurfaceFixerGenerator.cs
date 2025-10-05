@@ -1,6 +1,12 @@
 using Godot;
 using static TerrainManager;
 
+/*
+	Fixes surface blocks to ensure proper layering of grass, dirt, and stone.
+	
+	Converts any dirt blocks that are exposed to air to grass, and ensures there is a layer of dirt below grass.
+    It doesn't work very well with overhangs and caves, but it works fine for basic terrain.
+*/
 public class SurfaceFixerGenerator : ITerrainGeneratorStep
 {
 	private int _width, _height, _depth;

@@ -2,6 +2,12 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/* 
+ * Interface for generation steps 
+ * 
+ * In here we call all the different steps of terrain generation in order, so it can be easily edited, extended, or modified.
+ */
+
 [Tool]
 public partial class TerrainManager : Node
 {

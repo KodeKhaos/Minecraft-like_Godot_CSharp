@@ -3,6 +3,13 @@ using System;
 using System.Text.RegularExpressions;
 using static TerrainManager;
 
+/* 
+	OrePlacementGenerator places ores in the terrain based on noise values and depth.
+	It uses different noise functions for each type of ore to determine their placement.
+    
+    Do not modify the parameters of the noise functions here, they are perfectly balanced for ore distribution. Unless you know what you are doing.
+*/
+
 public class OrePlacementGenerator : ITerrainGeneratorStep
 {
 	private int _width, _height, _depth;
