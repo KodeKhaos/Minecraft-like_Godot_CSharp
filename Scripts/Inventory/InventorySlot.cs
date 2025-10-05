@@ -5,6 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* 
+ * InventorySlot represents a single slot in the player's inventory.
+ * 
+ */
 public partial class InventorySlot : Control
 {
 	[Export] public int SlotIdx;

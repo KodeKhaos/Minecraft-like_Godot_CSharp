@@ -1,5 +1,13 @@
 using Godot;
 
+/*
+	InventoryUI is responsible for displaying the player's inventory.
+	It listens for toggle events from InventoryGlobal and shows/hides the inventory UI.
+	It generates item slots dynamically based on the specified number of columns and rows.
+	
+	I literally just copy-pasted this from a previous project, so it might need some adjustments.
+*/
+
 public partial class InventoryUI : Control
 {
 	[Export] public GridContainer Grid;

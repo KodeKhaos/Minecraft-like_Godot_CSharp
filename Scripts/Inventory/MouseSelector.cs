@@ -3,6 +3,15 @@ using Godot.NativeInterop;
 using System;
 using System.Collections.Generic;
 
+/*
+ * MouseSelector handles the logic for dragging and dropping items within the inventory and hotbar.
+ * It manages the item being dragged, its quantity, and the slot it originated from.
+ * It also handles merging stacks, swapping items, and dropping items outside the inventory.
+ * 
+ * Dont ask me wtf is going on here, I just copy pasted from my old project and it doesnt even work
+ * Ill spend a few days fixing it later
+ */
+
 public partial class MouseSelector : Control
 {
 
@@ -30,23 +39,39 @@ public partial class MouseSelector : Control
 		if (!((Control)GetParent()).Visible)
 		{
 			ClearMouseSelector();
+			// Add droping item logic here
 		}
 		else
 		{
 			GD.Print("hovered slot: ", hovered_slot, " item_slot: ", item_slot);
 		}
-			Visible = has_item;
+		
+		Visible = has_item;
 		var mouse_position = GetGlobalMousePosition();
 		Position = mouse_position;
 
-		if ((Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click") || !((Control)GetParent()).Visible) && fully_dragged) 
+
+		//if ((Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click") || !((Control)GetParent()).Visible) && fully_dragged) 
+		//{
+		//	dragged_item = new Godot.Collections.Dictionary<String, Variant>{ ["item"] = item, ["amount"] = amount };
+		//	GD.Print("released click, dragged_item: ", dragged_item, " " + item, " " + amount);
+		//	HandleDrop();
+		//	InventoryGlobal.Instance.EmitSignal(InventoryGlobal.SignalName.RefreshInventory);
+		//}
+		//else if (Input.IsActionJustPressed("click") || Input.IsActionJustPressed("right_click"))
+		//{
+		//	fully_dragged = true;
+		//	GD.Print("pressed click, fully_dragged: ", fully_dragged);
+		//}
+
+		if (Input.IsActionJustReleased("click") && fully_dragged)
 		{
-			dragged_item = new Godot.Collections.Dictionary<String, Variant>{ ["item"] = item, ["amount"] = amount };
-			GD.Print("released click, dragged_item: ", dragged_item);
+			dragged_item = new Godot.Collections.Dictionary<String, Variant> { ["item"] = item, ["amount"] = amount };
+			GD.Print("released click, dragged_item: ", dragged_item, " " + item, " " + amount);
 			HandleDrop();
 			InventoryGlobal.Instance.EmitSignal(InventoryGlobal.SignalName.RefreshInventory);
 		}
-		else if (Input.IsActionJustPressed("click") || Input.IsActionJustPressed("right_click"))
+		else if (Input.IsActionJustReleased("click"))
 		{
 			fully_dragged = true;
 			GD.Print("pressed click, fully_dragged: ", fully_dragged);
@@ -63,6 +88,7 @@ public partial class MouseSelector : Control
 
 	public void SetItemData(int slot_idx, bool half_stack)
 	{
+		fully_dragged = false;
 		item_slot = slot_idx;
 		if (hovered_from_hotbar)
 		{
@@ -125,7 +151,6 @@ public partial class MouseSelector : Control
 			HandleInventoryDrop();
 		}
 
-		ClearMouseSelector();
 		DropItem();
 	}
 	private void DropItemFromInventory()

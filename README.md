@@ -13,19 +13,3 @@ Features (planned & in-progress):
 - Large-scale raids & quests
 
 - RPG elements layered on top of voxel-style gameplay
-
-TO-DO (shot-term):
-
-- Full inventory (hotbar included)
-  
-- Make hotbar place blocks (interact with world)
-
-- Create node type "Entity" and include all moving nodes (included player) there.
-
-- Upgrade movement with State machine and Animations.
-
-- Fix chunk face-culling and threading
-
-- Make partial blocks
-
-- Create better ilumination (from zero)
