@@ -4,6 +4,8 @@ using static TerrainManager;
 
 /*
 	Handles underground decoration such as deepslate, granite, diorite, andesite, and tuff.
+
+	Do not modify the parameters of the noise functions here, unless you know what you are doing.
 */
 
 public class UndergroundDecorGenerator : ITerrainGeneratorStep
@@ -77,26 +79,26 @@ public class UndergroundDecorGenerator : ITerrainGeneratorStep
 						{
 							case 0:
 								// Granite
-								if (graniteDensity > 0.9f)
+								if (graniteDensity > 0.85f)
 									map[x, y, z] = TerrainType.Granite;
 								break;
 							case 1:
 								// Diorite
-								if (dioriteDensity > 0.93f)
+								if (dioriteDensity > 0.86f)
 									map[x, y, z] = TerrainType.Diorite;
 								break;
 							case 2:
 								// Andesite
-								if (andesiteDensity > 0.85f)
+								if (andesiteDensity > 0.54f)
 									map[x, y, z] = TerrainType.Andesite;
 								break;
 							case 3:
 								// Tuff
 								if (y < _deepslateLayer)
-									if (tuffDensity > 0.7f)
+									if (tuffDensity > 0.6f)
 										map[x, y, z] = TerrainType.Tuff;
 								else if (y < _deepslateLayer * 1.34)
-									if (tuffDensity > 0.8f)
+									if (tuffDensity > 0.7f)
 										map[x, y, z] = TerrainType.Tuff;
 								break;
 						}

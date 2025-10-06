@@ -302,22 +302,22 @@ fractal_octaves = 4
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h8gpp"]
 seed = 13
-frequency = 0.026
+frequency = 0.07
 fractal_type = 0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_urnpu"]
 seed = 647
-frequency = 0.0332
+frequency = 0.067
 fractal_type = 0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yv6fa"]
 seed = 702432
-frequency = 0.028
+frequency = 0.07
 fractal_type = 0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ea46x"]
 seed = 69
-frequency = 0.032
+frequency = 0.08
 fractal_type = 0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_e5mq6"]
