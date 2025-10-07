@@ -146,6 +146,9 @@ theme_override_constants/line_spacing = -12
 theme_override_fonts/font = ExtResource("3_8lmjw")
 theme_override_font_sizes/font_size = 22
 
+[connection signal="gui_input" from="." to="." method="ItemButtonPressed"]
+[connection signal="mouse_entered" from="." to="." method="ItemButtonMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="ItemButtonMouseExited"]
 [connection signal="gui_input" from="MarginContainer/ItemButton" to="." method="ItemButtonPressed"]
 [connection signal="mouse_entered" from="MarginContainer/ItemButton" to="." method="ItemButtonMouseEntered"]
 [connection signal="mouse_exited" from="MarginContainer/ItemButton" to="." method="ItemButtonMouseExited"]

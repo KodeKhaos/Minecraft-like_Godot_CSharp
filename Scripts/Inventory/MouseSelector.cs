@@ -34,6 +34,10 @@ public partial class MouseSelector : Control
 	{
 		possibleItems = GetTree().Root.GetNode<PossibleItems>("Main/ItemManager");
 	}
+
+	private int temp = -1;
+	private int temp2 = -1;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		if (!((Control)GetParent()).Visible)
@@ -43,7 +47,10 @@ public partial class MouseSelector : Control
 		}
 		else
 		{
-			GD.Print("hovered slot: ", hovered_slot, " item_slot: ", item_slot);
+			if (temp != hovered_slot || temp2 != item_slot)
+				GD.Print("hovered slot: ", hovered_slot, " item_slot: ", item_slot);
+			temp = hovered_slot;
+			temp2 = item_slot;
 		}
 		
 		Visible = has_item;
@@ -64,17 +71,20 @@ public partial class MouseSelector : Control
 		//	GD.Print("pressed click, fully_dragged: ", fully_dragged);
 		//}
 
-		if (Input.IsActionJustReleased("click") && fully_dragged)
+		if (((Control)GetParent()).Visible)
 		{
-			dragged_item = new Godot.Collections.Dictionary<String, Variant> { ["item"] = item, ["amount"] = amount };
-			GD.Print("released click, dragged_item: ", dragged_item, " " + item, " " + amount);
-			HandleDrop();
-			InventoryGlobal.Instance.EmitSignal(InventoryGlobal.SignalName.RefreshInventory);
-		}
-		else if (Input.IsActionJustReleased("click"))
-		{
-			fully_dragged = true;
-			GD.Print("pressed click, fully_dragged: ", fully_dragged);
+			if ((Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click")) && fully_dragged)
+			{
+				dragged_item = new Godot.Collections.Dictionary<String, Variant> { ["item"] = item, ["amount"] = amount };
+				GD.Print("released click, dragged_item: ", dragged_item, " " + item, " " + amount);
+				HandleDrop();
+				InventoryGlobal.Instance.EmitSignal(InventoryGlobal.SignalName.RefreshInventory);
+			}
+			else if (Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click"))
+			{
+				fully_dragged = true;
+				GD.Print("pressed click, fully_dragged: ", fully_dragged);
+			}
 		}
 	}
 
@@ -126,6 +136,7 @@ public partial class MouseSelector : Control
 		}
 		Icon.Texture = item.Texture;
 		item_from_hotbar = hovered_from_hotbar;
+		GD.Print("Set item data: ", item, " amount: ", amount, " from hotbar: ", item_from_hotbar);
 	}
 
 	private void DropItem()

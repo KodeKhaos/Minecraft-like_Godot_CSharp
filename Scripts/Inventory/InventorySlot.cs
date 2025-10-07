@@ -42,6 +42,12 @@ public partial class InventorySlot : Control
 		
 		if (SlotIdx >= 0 && SlotIdx < inventoryGlobal.Inventory.Count && inventoryGlobal.Inventory[SlotIdx] != null)
 		{
+			if ((Item)inventoryGlobal.Inventory[SlotIdx]["item"] != null);
+			else
+			{
+				ClearSlot();
+				return;
+			}
 			var inventoryItem = inventoryGlobal.Inventory[SlotIdx];
 			inventoryItem.TryGetValue("item", out var tempItem);
 			Item item = (Item)tempItem;
@@ -130,11 +136,17 @@ public partial class InventorySlot : Control
 		{
 			DetailsPanel.Visible = true;
 		}
+		DetailsPanel.Visible = true;
 	}
 
 	public async Task ItemButtonMouseExited()
 	{
 		DetailsPanel.Visible = false;
+		await MouseExit();
+	}
+
+	public async Task MouseExit()
+	{
 		await ToSignal(GetTree(), "PhysicsFrame");
 		mouseSelector.hovered_slot = -1;
 	}
@@ -149,6 +161,7 @@ public partial class InventorySlot : Control
 			{
 				if (!mouseSelector.has_item)
 				{
+					mouseSelector.fully_dragged = false;
 					// Check which button
 					switch (mouseEvent.ButtonIndex)
 					{
