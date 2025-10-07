@@ -43,8 +43,20 @@ public partial class InventorySlot : Control
 		if (SlotIdx >= 0 && SlotIdx < inventoryGlobal.Inventory.Count && inventoryGlobal.Inventory[SlotIdx] != null)
 		{
 			var inventoryItem = inventoryGlobal.Inventory[SlotIdx];
-			var item = (Item)inventoryItem["item"];
-			var itemName = item.ItemName;
+			inventoryItem.TryGetValue("item", out var tempItem);
+			Item item = (Item)tempItem;
+			var itemName = "";
+			try 
+			{
+				itemName = item.ItemName;
+			}
+			catch (Exception e)
+			{
+				GD.PrintErr("Error getting item name for inventory item at slot ", SlotIdx, ": ", e.Message, " item: ", item, ", inventory item: ", inventoryItem);
+				ClearSlot();
+				return;
+			}
+
 
 			GD.Print("Inventory Item: ", inventoryItem, " item: ", item, " item name: ", itemName);
 

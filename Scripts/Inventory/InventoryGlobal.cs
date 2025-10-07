@@ -33,13 +33,16 @@ public partial class InventoryGlobal : Node
 
 		var possibleItems = GetTree().Root.GetNode<PossibleItems>("Main/ItemManager");
 		var fruits = new Godot.Collections.Dictionary<string, Variant>();
-		fruits.Add("item", possibleItems.PossibleItemsList[3]);
+		possibleItems.PossibleItemsDict.TryGetValue("Pink Fruit", out var item);
+		fruits.Add("item", item);
 		fruits.Add("amount", 5);
 		Inventory[0] = fruits;
 		var pickaxe = new Godot.Collections.Dictionary<string, Variant>();
-		pickaxe.Add("item", possibleItems.PossibleItemsList[2]);
+		possibleItems.PossibleItemsDict.TryGetValue("Iron Pickaxe", out var _item);
+		pickaxe.Add("item", _item);
 		pickaxe.Add("amount", 1);
 		Inventory[1] = pickaxe;
+		GD.Print("Initialized inventory with items: ", Inventory);
 	}
 	public override void _Input(InputEvent @event)
 	{

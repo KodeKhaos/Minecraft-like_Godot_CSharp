@@ -1,6 +1,8 @@
 using Godot;
+using Godot.NativeInterop;
 using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 /* 
  * Item represents a type of item that can be stored in the player's inventory.
@@ -16,10 +18,10 @@ public partial class Item : Resource
 	[Export] public String ItemType { get; set; }
 	[Export] public int MaxStackSize { get; set; }
 	[Export] public Texture2D Texture { get; set; }
-	[Export] public Dictionary<String, Variant> Attributes { get; set; }
+	[Export] public Godot.Collections.Dictionary<String, Variant> Attributes { get; set; }
 
 	public Item() // Constructor
 	{
-		
+
 	}
 }

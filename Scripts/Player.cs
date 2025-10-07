@@ -186,7 +186,7 @@ public partial class Player : CharacterBody3D
 		// Offset the point to capsule local space (no rotation/scaling)
 		Vector3 localPoint = (point - playerPosition) + new Vector3(0.5f, 0.5f, 0.5f);
 
-		float radius = player.Size.X;
+		float radius = player.Size.X + 0.1f;
 		float halfHeight = player.Size.Y / 2f;
 
 		return !((localPoint.X < radius && localPoint.X > -radius) && (localPoint.Y < halfHeight && localPoint.Y > -halfHeight) && (localPoint.Z < radius && localPoint.Z > -radius));

@@ -167,6 +167,12 @@ public partial class Chunk : StaticBody3D
 	{
 		try
 		{
+			if (_blocks[blockPosition.X, blockPosition.Y, blockPosition.Z] != BlockManager.Instance.Air && block != BlockManager.Instance.Air)
+			{
+				GD.Print("Error: Cannot build over another block");
+				return;
+			}
+
 			_blocks[blockPosition.X, blockPosition.Y, blockPosition.Z] = block;
 		}
 		catch

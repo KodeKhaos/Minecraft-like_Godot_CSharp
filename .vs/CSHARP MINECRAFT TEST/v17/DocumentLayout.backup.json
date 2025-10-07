@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "Z:\\Godot\\CSharp Minecraft Test\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\inventory\\mouseselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\inventory\\mouseselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\terrain generation\\oreplacementgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\terrain generation\\oreplacementgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\inventory\\possibleitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\inventory\\possibleitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\inventory\\mouseselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\inventory\\mouseselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\inventory\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,14 +31,6 @@
       "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\inventory\\inventoryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\chunk managment\\chunkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\chunk managment\\chunkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\chunk managment\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\chunk managment\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|z:\\godot\\csharp minecraft test\\scripts\\block managment\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E6E8F75-F4F1-4B24-9F94-D44BDBE562DB}|CSharp Minecraft Test.csproj|solutionrelative:scripts\\block managment\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -55,19 +47,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OrePlacementGenerator.cs",
-              "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
-              "RelativeDocumentMoniker": "Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
-              "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
-              "RelativeToolTip": "Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAACAAAAAAAAAA==",
+              "Title": "MouseSelector.cs",
+              "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Inventory\\MouseSelector.cs",
+              "RelativeDocumentMoniker": "Scripts\\Inventory\\MouseSelector.cs",
+              "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Inventory\\MouseSelector.cs",
+              "RelativeToolTip": "Scripts\\Inventory\\MouseSelector.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAswMIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:28:32.995Z",
+              "WhenOpened": "2025-10-05T14:27:58.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PossibleItems.cs",
               "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Inventory\\PossibleItems.cs",
               "RelativeDocumentMoniker": "Scripts\\Inventory\\PossibleItems.cs",
@@ -75,20 +67,19 @@
               "RelativeToolTip": "Scripts\\Inventory\\PossibleItems.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:28:01.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T14:28:01.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MouseSelector.cs",
-              "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Inventory\\MouseSelector.cs",
-              "RelativeDocumentMoniker": "Scripts\\Inventory\\MouseSelector.cs",
-              "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Inventory\\MouseSelector.cs",
-              "RelativeToolTip": "Scripts\\Inventory\\MouseSelector.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "OrePlacementGenerator.cs",
+              "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
+              "RelativeDocumentMoniker": "Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
+              "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
+              "RelativeToolTip": "Scripts\\Terrain Generation\\OrePlacementGenerator.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:58.18Z",
+              "WhenOpened": "2025-10-05T14:28:32.995Z",
               "EditorCaption": ""
             },
             {
@@ -101,8 +92,7 @@
               "RelativeToolTip": "Scripts\\Inventory\\Item.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:55.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T14:27:55.942Z"
             },
             {
               "$type": "Document",
@@ -114,8 +104,7 @@
               "RelativeToolTip": "Scripts\\Inventory\\InventoryUI.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:55.084Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T14:27:55.084Z"
             },
             {
               "$type": "Document",
@@ -127,8 +116,7 @@
               "RelativeToolTip": "Scripts\\Inventory\\InventoryGlobal.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:53.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T14:27:53.391Z"
             },
             {
               "$type": "Document",
@@ -140,38 +128,11 @@
               "RelativeToolTip": "Scripts\\Inventory\\InventorySlot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:51.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T14:27:51.61Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "ChunkManager.cs",
-              "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Chunk Managment\\ChunkManager.cs",
-              "RelativeDocumentMoniker": "Scripts\\Chunk Managment\\ChunkManager.cs",
-              "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Chunk Managment\\ChunkManager.cs",
-              "RelativeToolTip": "Scripts\\Chunk Managment\\ChunkManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:48.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Chunk.cs",
-              "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Chunk Managment\\Chunk.cs",
-              "RelativeDocumentMoniker": "Scripts\\Chunk Managment\\Chunk.cs",
-              "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Chunk Managment\\Chunk.cs",
-              "RelativeToolTip": "Scripts\\Chunk Managment\\Chunk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:47.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Block.cs",
               "DocumentMoniker": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Block Managment\\Block.cs",
               "RelativeDocumentMoniker": "Scripts\\Block Managment\\Block.cs",
@@ -179,8 +140,7 @@
               "RelativeToolTip": "Scripts\\Block Managment\\Block.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T14:27:37.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-05T14:27:37.175Z"
             }
           ]
         }

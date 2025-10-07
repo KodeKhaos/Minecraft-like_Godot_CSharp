@@ -26,7 +26,6 @@ public class SurfaceFixerGenerator : ITerrainGeneratorStep
 			for (int z = 0; z < _depth; z++)
 			{
 				bool foundGrass = false;
-				int dirtLayers = 0;
 
 				for (int y = _height - 1; y >= 0; y--)
 				{
@@ -34,19 +33,11 @@ public class SurfaceFixerGenerator : ITerrainGeneratorStep
 					{
 						if (map[x,y,z] == TerrainType.Grass)
 						{
-							foundGrass = true;
+							break;
 						}
 						else if (map[x,y,z] == TerrainType.Dirt && foundGrass == false)
 						{
-							map[x, y, z] = TerrainType.Stone;
-							dirtLayers++;
-						}
-					}
-					else if (foundGrass && map[x, y, z] == TerrainType.Air)
-					{
-						if (dirtLayers == 0)
-						{
-							map[x, y + 1, z] = TerrainType.Air;
+							map[x, y, z] = TerrainType.Grass;
 							break;
 						}
 					}

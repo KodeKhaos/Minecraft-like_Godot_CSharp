@@ -18,7 +18,7 @@ public partial class MouseSelector : Control
 	[Export] public Label QuantityText;
 	[Export] public Sprite2D Icon;
 
-	public String item;
+	public Item item;
 	public int amount;
 	public bool has_item = false;
 	public int item_slot = -1;
@@ -83,7 +83,7 @@ public partial class MouseSelector : Control
 		has_item = false;
 		item_slot = -1;
 		amount = 0;
-		item = "";
+		item = null;
 	}
 
 	public void SetItemData(int slot_idx, bool half_stack)
@@ -92,7 +92,7 @@ public partial class MouseSelector : Control
 		item_slot = slot_idx;
 		if (hovered_from_hotbar)
 		{
-			item = ((Item)InventoryGlobal.Instance.HotbarInventory[slot_idx]["item"]).ItemName;
+			item = ((Item)InventoryGlobal.Instance.HotbarInventory[slot_idx]["item"]);
 			if (half_stack)
 			{
 				amount = Mathf.CeilToInt((float)InventoryGlobal.Instance.HotbarInventory[slot_idx]["amount"] / 2.0);
@@ -104,7 +104,7 @@ public partial class MouseSelector : Control
 		}
 		else
 		{
-			item = ((Item)InventoryGlobal.Instance.Inventory[slot_idx]["item"]).ItemName;
+			item = ((Item)InventoryGlobal.Instance.Inventory[slot_idx]["item"]);
 			if (half_stack)
 			{
 				amount = Mathf.CeilToInt((float)InventoryGlobal.Instance.Inventory[slot_idx]["amount"] / 2.0);
@@ -124,7 +124,7 @@ public partial class MouseSelector : Control
 		{
 			QuantityText.Text = "";
 		}
-		Icon.Texture = possibleItems.PossibleItemsDict[item].Texture;
+		Icon.Texture = item.Texture;
 		item_from_hotbar = hovered_from_hotbar;
 	}
 
@@ -191,23 +191,7 @@ public partial class MouseSelector : Control
 	{
 		if (hovered_from_hotbar)
 		{
-			if (item_slot == hovered_slot)
-			{
-				if (InventoryGlobal.Instance.HotbarInventory[item_slot] != null)
-				{
-					int amount = (int)InventoryGlobal.Instance.HotbarInventory[item_slot]["amount"];
-					amount += (int)dragged_item["amount"];
-					InventoryGlobal.Instance.HotbarInventory[item_slot]["amount"] = amount;
-				}
-				else
-				{
-					InventoryGlobal.Instance.HotbarInventory[item_slot] = dragged_item;
-				}
-			}
-			else
-			{
-				MergeOrSwapItems(InventoryGlobal.Instance.HotbarInventory, hovered_slot);
-			}
+			MergeOrSwapItems(InventoryGlobal.Instance.HotbarInventory, hovered_slot);
 		}
 		else
 		{
@@ -222,29 +206,14 @@ public partial class MouseSelector : Control
 		}
 		else
 		{
-			if (item_slot == hovered_slot)
-			{
-				if (InventoryGlobal.Instance.Inventory[item_slot] != null)
-				{
-					int amount = (int)InventoryGlobal.Instance.Inventory[item_slot]["amount"];
-					amount += (int)dragged_item["amount"];
-					InventoryGlobal.Instance.Inventory[item_slot]["amount"] = amount;
-				}
-				else
-				{
-					InventoryGlobal.Instance.Inventory[item_slot] = dragged_item;
-				}
-			}
-			else
-			{
-				MergeOrSwapItems(InventoryGlobal.Instance.Inventory, hovered_slot);
-			}
+			MergeOrSwapItems(InventoryGlobal.Instance.Inventory, hovered_slot);
 		}
 	}
 	private void MergeOrSwapItems(List<Godot.Collections.Dictionary<string, Variant>> target_inventory, int slot)
 	{
 		if (target_inventory[slot] != null)
 		{
+			GD.Print("Attempting to merge stacks... target slot: ", target_inventory[slot]);
 			if ((Item)dragged_item["item"] == (Item)target_inventory[slot]["item"])
 			{
 				MergeStacks(target_inventory, slot);
@@ -257,6 +226,7 @@ public partial class MouseSelector : Control
 		target_inventory[slot] = dragged_item;
 		var temp2 = dragged_item;
 		dragged_item = temp;
+		/*
 		if (item_from_hotbar)
 		{
 			if (InventoryGlobal.Instance.HotbarInventory[item_slot] != null)
@@ -307,6 +277,8 @@ public partial class MouseSelector : Control
 			}
 			InventoryGlobal.Instance.Inventory[item_slot] = dragged_item;
 		}
+		*/
+		InventoryGlobal.Instance.Inventory = target_inventory;
 	}
 
 	private void MergeStacks(List<Godot.Collections.Dictionary<string, Variant>> target_inventory, int slot)
