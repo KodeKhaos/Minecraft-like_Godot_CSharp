@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bly1vdhiosvb5"]
+[gd_scene load_steps=8 format=3 uid="uid://bly1vdhiosvb5"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/InventoryUI.cs" id="1_6v38u"]
 [ext_resource type="FontFile" uid="uid://bi04iecmbt37l" path="res://assets/Fonts/ARCADECLASSIC.TTF" id="2_gtwua"]
 [ext_resource type="PackedScene" uid="uid://d3ce5a8uolrwp" path="res://Scenes/PlayerInventory/Inventory_Slot.tscn" id="2_waxmg"]
 [ext_resource type="Texture2D" uid="uid://dswd2isskfmyr" path="res://assets/Icons/icon10.png" id="3_lv2mn"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryPanel.cs" id="3_nhgtm"]
 [ext_resource type="Script" path="res://Scripts/Inventory/MouseSelector.cs" id="3_suylp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60rcy"]
@@ -45,6 +46,7 @@ offset_top = 100.0
 offset_right = 1779.0
 offset_bottom = 724.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_60rcy")
+script = ExtResource("3_nhgtm")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0

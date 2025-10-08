@@ -22,7 +22,7 @@ public partial class MouseSelector : Control
 	public int amount;
 	public bool has_item = false;
 	public int item_slot = -1;
-	public int hovered_slot = -1;
+	public int hovered_slot = -2;
 	public bool item_from_hotbar = false;
 	public bool hovered_from_hotbar = false;
 	public bool fully_dragged = false;
@@ -75,12 +75,16 @@ public partial class MouseSelector : Control
 		{
 			if ((Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click")) && fully_dragged)
 			{
+				if (hovered_slot == -1)
+				{
+					hovered_slot = item_slot;
+				}
 				dragged_item = new Godot.Collections.Dictionary<String, Variant> { ["item"] = item, ["amount"] = amount };
 				GD.Print("released click, dragged_item: ", dragged_item, " " + item, " " + amount);
 				HandleDrop();
 				InventoryGlobal.Instance.EmitSignal(InventoryGlobal.SignalName.RefreshInventory);
 			}
-			else if (Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click"))
+			else if (Input.IsActionJustReleased("click") || Input.IsActionJustReleased("right_click") && hovered_slot > -1)
 			{
 				fully_dragged = true;
 				GD.Print("pressed click, fully_dragged: ", fully_dragged);

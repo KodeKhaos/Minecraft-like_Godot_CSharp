@@ -120,6 +120,8 @@ public partial class InventorySlot : Control
 		{
 			child.Text = "";
 		}
+
+		DetailsPanel.Visible = false;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -139,22 +141,13 @@ public partial class InventorySlot : Control
 		DetailsPanel.Visible = true;
 	}
 
-	public async Task ItemButtonMouseExited()
+	public void ItemButtonMouseExited()
 	{
 		DetailsPanel.Visible = false;
-		await MouseExit();
-	}
-
-	public async Task MouseExit()
-	{
-		await ToSignal(GetTree(), "PhysicsFrame");
-		mouseSelector.hovered_slot = -1;
 	}
 
 	public void ItemButtonPressed(InputEvent @event)
 	{
-		DetailsPanel.Visible = false;
-
 		if (inventoryGlobal.Inventory[SlotIdx] != null)
 		{
 			if (@event is InputEventMouseButton mouseEvent && mouseEvent.IsPressed())
@@ -162,6 +155,7 @@ public partial class InventorySlot : Control
 				if (!mouseSelector.has_item)
 				{
 					mouseSelector.fully_dragged = false;
+					mouseSelector.hovered_slot = SlotIdx;
 					// Check which button
 					switch (mouseEvent.ButtonIndex)
 					{
