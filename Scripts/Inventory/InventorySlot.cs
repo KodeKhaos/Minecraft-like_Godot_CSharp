@@ -42,8 +42,7 @@ public partial class InventorySlot : Control
 		
 		if (SlotIdx >= 0 && SlotIdx < inventoryGlobal.Inventory.Count && inventoryGlobal.Inventory[SlotIdx] != null)
 		{
-			if ((Item)inventoryGlobal.Inventory[SlotIdx]["item"] != null);
-			else
+			if ((Item)inventoryGlobal.Inventory[SlotIdx]["item"] == null)
 			{
 				ClearSlot();
 				return;
@@ -138,7 +137,6 @@ public partial class InventorySlot : Control
 		{
 			DetailsPanel.Visible = true;
 		}
-		DetailsPanel.Visible = true;
 	}
 
 	public void ItemButtonMouseExited()

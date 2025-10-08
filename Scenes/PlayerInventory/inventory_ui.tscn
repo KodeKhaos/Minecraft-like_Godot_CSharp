@@ -49,11 +49,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_60rcy")
 script = ExtResource("3_nhgtm")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 140.0
-offset_right = 1728.0
-offset_bottom = 715.0
+layout_mode = 2
+offset_left = 197.0
+offset_top = 148.0
+offset_right = 1742.0
+offset_bottom = 683.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 9
@@ -73,6 +75,7 @@ horizontal_alignment = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 script = ExtResource("3_suylp")
 QuantityText = NodePath("ItemQuantity")
 Icon = NodePath("ItemIcon")
@@ -88,8 +91,13 @@ offset_left = -48.0
 offset_top = 51.0
 offset_right = 8.0
 offset_bottom = 105.0
+mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gtwua")
 theme_override_font_sizes/font_size = 50
 text = "1"
 horizontal_alignment = 2
+
+[connection signal="gui_input" from="Panel" to="Panel" method="InputEventMouseClick"]
+[connection signal="mouse_entered" from="Panel" to="Panel" method="InputEventMouseEnter"]
+[connection signal="mouse_exited" from="Panel" to="Panel" method="InputEventMouseExit"]

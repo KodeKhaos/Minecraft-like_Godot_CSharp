@@ -120,7 +120,7 @@ public partial class Player : CharacterBody3D
 					if (placingCooldown == 0)
 					{
 						ChunkManager.Instance.SetBlock((Vector3I)(collisionPoint), BlockManager.Instance.OakLeaves); // Later, when we add the inventory, we can change this for the hotbar holded item
-						placingCooldown = (int)Mathf.Round(Engine.GetFramesPerSecond() * 0.5);
+						placingCooldown = (int)Mathf.Round(Engine.GetFramesPerSecond() * 0.3);
 					}
 					else
 					{
@@ -129,7 +129,7 @@ public partial class Player : CharacterBody3D
 				}
 				else if (Input.IsActionPressed("PlaceBlock"))
 				{
-					placingCooldown = (int)Mathf.Round(Engine.GetFramesPerSecond() * 0.1);
+					placingCooldown = (int)Mathf.Round(Engine.GetFramesPerSecond() * 0.3);
 				}
 				else
 				{

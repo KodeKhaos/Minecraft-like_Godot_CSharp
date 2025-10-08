@@ -150,23 +150,25 @@ public partial class MouseSelector : Control
 	}
 	private void HandleDrop()
 	{
-		if (hovered_slot < 0)
+		if (hovered_slot < -1)
 		{
 			DropItemFromInventory();
 			DropItem();
 			return;
 		}
-
-		if (item_from_hotbar)
+		else if (item_slot > -1)
 		{
-			HandleHotbarDrop();
-		}
-		else
-		{
-			HandleInventoryDrop();
-		}
+			if (item_from_hotbar)
+			{
+				HandleHotbarDrop();
+			}
+			else
+			{
+				HandleInventoryDrop();
+			}
 
-		DropItem();
+			DropItem();
+		}
 	}
 	private void DropItemFromInventory()
 	{
