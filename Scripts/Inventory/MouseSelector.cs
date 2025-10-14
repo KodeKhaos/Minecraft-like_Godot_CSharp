@@ -16,7 +16,7 @@ public partial class MouseSelector : Control
 {
 
 	[Export] public Label QuantityText;
-	[Export] public Sprite2D Icon;
+	[Export] public TextureRect Icon;
 
 	public Item item;
 	public int amount;

@@ -37,23 +37,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.105882, 0.105882, 0.105882, 0.341176)
+color = Color(0.105882, 0.105882, 0.105882, 0.615686)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
+anchor_top = 0.005
+anchor_right = 1.0
+anchor_bottom = 0.67
 offset_left = 159.0
-offset_top = 100.0
-offset_right = 1779.0
-offset_bottom = 724.0
+offset_top = 94.6
+offset_right = -181.0
+offset_bottom = 0.399963
 theme_override_styles/panel = SubResource("StyleBoxFlat_60rcy")
 script = ExtResource("3_nhgtm")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
+anchor_top = -0.019
+anchor_right = 1.0
+anchor_bottom = 0.67
 offset_left = 197.0
-offset_top = 148.0
-offset_right = 1742.0
-offset_bottom = 683.0
+offset_top = 168.52
+offset_right = -218.0
+offset_bottom = -40.6
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/h_separation = 20
@@ -61,11 +67,12 @@ theme_override_constants/v_separation = 20
 columns = 9
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 668.0
-offset_top = 5.0
-offset_right = 1262.0
-offset_bottom = 107.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 406.0
+offset_right = -406.0
+offset_bottom = 102.0
 theme_override_fonts/font = ExtResource("2_gtwua")
 theme_override_font_sizes/font_size = 100
 text = "Inventory"
@@ -80,21 +87,33 @@ script = ExtResource("3_suylp")
 QuantityText = NodePath("ItemQuantity")
 Icon = NodePath("ItemIcon")
 
-[node name="ItemIcon" type="Sprite2D" parent="Mouse Selector"]
-position = Vector2(17, 43)
-scale = Vector2(4, 4)
+[node name="ItemIcon" type="TextureRect" parent="Mouse Selector"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 69.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_lv2mn")
+expand_mode = 1
 
 [node name="ItemQuantity" type="Label" parent="Mouse Selector"]
-layout_mode = 0
-offset_left = -48.0
-offset_top = 51.0
-offset_right = 8.0
-offset_bottom = 105.0
-mouse_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.307
+anchor_top = 0.731
+anchor_right = 0.307
+anchor_bottom = 0.731
+offset_left = -8.201
+offset_top = 8.567
+offset_right = 19.799
+offset_bottom = 45.567
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gtwua")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "1"
 horizontal_alignment = 2
 

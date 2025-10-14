@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 public partial class InventorySlot : Control
 {
 	[Export] public int SlotIdx;
-	[Export] public Sprite2D ItemIcon;
+	[Export] public TextureRect ItemIcon;
 	[Export] public Label ItemQuantity;
 	[Export] public BaseButton ItemButton;
 	[Export] public ColorRect DetailsPanel;
@@ -65,45 +65,46 @@ public partial class InventorySlot : Control
 
 			GD.Print("Inventory Item: ", inventoryItem, " item: ", item, " item name: ", itemName);
 
-			ItemIcon.Texture = (Texture2D)PossibleItems.Instance.PossibleItemsDict[itemName].Texture;
-			ItemQuantity.Text = inventoryItem["amount"].ToString();
+			if (IsInstanceValid(ItemIcon) && IsInstanceValid(ItemQuantity))
+				ItemIcon.Texture = (Texture2D)PossibleItems.Instance.PossibleItemsDict[itemName].Texture;
+				ItemQuantity.Text = inventoryItem["amount"].ToString();
 
-			if (DetailsPanel.GetChild(0) is Label nameLabel)
-				nameLabel.Text = itemName;
-
-			if (DetailsPanel.GetChild(1) is Label typeLabel)
-				typeLabel.Text = (String)PossibleItems.Instance.PossibleItemsDict[itemName].ItemType;
-
-			if (DetailsPanel.GetChild(2) is Label attrLabel)
-			{
-				var itemData = PossibleItems.Instance.PossibleItemsDict[itemName];
-
-				if (itemData.Attributes != null)
+				if (DetailsPanel.GetChild(0) is Label nameLabel)
+					nameLabel.Text = itemName;
+	
+				if (DetailsPanel.GetChild(1) is Label typeLabel)
+					typeLabel.Text = (String)PossibleItems.Instance.PossibleItemsDict[itemName].ItemType;
+	
+				if (DetailsPanel.GetChild(2) is Label attrLabel)
 				{
-					Dictionary attributesVariant = (Dictionary)itemData.Attributes;
-					var attributes = attributesVariant;
-
-					if (attributes != null && attributes.Count > 0)
+					var itemData = PossibleItems.Instance.PossibleItemsDict[itemName];
+	
+					if (itemData.Attributes != null)
 					{
-						StringBuilder attrText = new();
-
-						foreach (var key in attributes.Keys)
+						Dictionary attributesVariant = (Dictionary)itemData.Attributes;
+						var attributes = attributesVariant;
+	
+						if (attributes != null && attributes.Count > 0)
 						{
-							attrText.Append($"{key.ToString().Capitalize()}: {attributes[key]}\n");
+							StringBuilder attrText = new();
+	
+							foreach (var key in attributes.Keys)
+							{
+								attrText.Append($"{key.ToString().Capitalize()}: {attributes[key]}\n");
+							}
+	
+							attrLabel.Text = attrText.ToString().Trim();
 						}
-
-						attrLabel.Text = attrText.ToString().Trim();
+						else
+						{
+							attrLabel.Text = "";
+						}
 					}
 					else
 					{
 						attrLabel.Text = "";
 					}
 				}
-				else
-				{
-					attrLabel.Text = "";
-				}
-			}
 		}
 		else
 		{
@@ -113,7 +114,8 @@ public partial class InventorySlot : Control
 
 	private void ClearSlot()
 	{
-		ItemIcon.Texture = null;
+		if (IsInstanceValid(ItemIcon))
+			ItemIcon.Texture = null;
 		ItemQuantity.Text = "";
 		foreach (Label child in DetailsPanel.GetChildren())
 		{
