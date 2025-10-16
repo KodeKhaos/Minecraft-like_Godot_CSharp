@@ -442,4 +442,4 @@ script = ExtResource("32_5biot")
 ChunkScene = ExtResource("33_kcyoy")
 
 [node name="Player" parent="." instance=ExtResource("34_yfq04")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 110, 0)

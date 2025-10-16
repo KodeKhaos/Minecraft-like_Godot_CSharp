@@ -15,7 +15,7 @@ public partial class InventorySlot : Control
 	[Export] public TextureRect ItemIcon;
 	[Export] public Label ItemQuantity;
 	[Export] public BaseButton ItemButton;
-	[Export] public ColorRect DetailsPanel;
+	[Export] public Panel DetailsPanel;
 
 	private bool showHide = true;
 	InventoryGlobal inventoryGlobal = null;

@@ -150,10 +150,12 @@ public partial class MouseSelector : Control
 	}
 	private void HandleDrop()
 	{
-		if (hovered_slot < -1)
+		if (hovered_slot < 0)
 		{
 			DropItemFromInventory();
 			DropItem();
+			if (hovered_slot == -1)
+				GD.Print("Hovered slot was 1!! wtf is going on???");
 			return;
 		}
 		else if (item_slot > -1)

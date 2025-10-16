@@ -66,8 +66,7 @@
               "RelativeToolTip": "Scripts\\Inventory\\InventoryPanel.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAgwAkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T14:34:21.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T14:34:21.872Z"
             },
             {
               "$type": "Document",
@@ -77,7 +76,7 @@
               "RelativeDocumentMoniker": "Scripts\\Inventory\\MouseSelector.cs",
               "ToolTip": "Z:\\Godot\\CSharp Minecraft Test\\Scripts\\Inventory\\MouseSelector.cs",
               "RelativeToolTip": "Scripts\\Inventory\\MouseSelector.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAwwCwAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T14:27:58.18Z",
               "EditorCaption": ""

@@ -179,6 +179,12 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		if (GlobalPosition.Y < -50)
+		{
+			GlobalPosition = GlobalPosition + new Vector3(0, 250, 0);
+			Velocity = Vector3.Zero;
+		}
 	}
 
 	public static bool IsPointInsidePlayer(BoxShape3D player, Vector3 playerPosition, Vector3 point)
