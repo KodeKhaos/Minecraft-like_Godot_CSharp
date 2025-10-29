@@ -3,10 +3,12 @@ using Godot.Collections;
 using System;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 /* 
  * InventorySlot represents a single slot in the player's inventory.
+ * 
+ * It will later be used for all inventory types (hotbar, backpack, chest, etc) as they share the same functionality.
+ * I used to have separate scripts for hotbar and inventoryrslots, but that was redundant.
  */
 
 public partial class InventorySlot : Control
@@ -15,7 +17,7 @@ public partial class InventorySlot : Control
 	[Export] public TextureRect ItemIcon;
 	[Export] public Label ItemQuantity;
 	[Export] public BaseButton ItemButton;
-	[Export] public Panel DetailsPanel;
+	[Export] public PanelContainer DetailsPanel;
 
 	private bool showHide = true;
 	InventoryGlobal inventoryGlobal = null;
@@ -69,13 +71,13 @@ public partial class InventorySlot : Control
 				ItemIcon.Texture = (Texture2D)PossibleItems.Instance.PossibleItemsDict[itemName].Texture;
 				ItemQuantity.Text = inventoryItem["amount"].ToString();
 
-				if (DetailsPanel.GetChild(0) is Label nameLabel)
+				if (DetailsPanel.GetChild(0).GetChild(0) is Label nameLabel)
 					nameLabel.Text = itemName;
 	
-				if (DetailsPanel.GetChild(1) is Label typeLabel)
+				if (DetailsPanel.GetChild(0).GetChild(1) is Label typeLabel)
 					typeLabel.Text = (String)PossibleItems.Instance.PossibleItemsDict[itemName].ItemType;
 	
-				if (DetailsPanel.GetChild(2) is Label attrLabel)
+				if (DetailsPanel.GetChild(0).GetChild(2) is Label attrLabel)
 				{
 					var itemData = PossibleItems.Instance.PossibleItemsDict[itemName];
 	
@@ -116,13 +118,12 @@ public partial class InventorySlot : Control
 	{
 		if (IsInstanceValid(ItemIcon))
 			ItemIcon.Texture = null;
-		ItemQuantity.Text = "";
-		foreach (Label child in DetailsPanel.GetChildren())
-		{
-			child.Text = "";
-		}
-
-		DetailsPanel.Visible = false;
+			ItemQuantity.Text = "";
+			foreach (Label child in DetailsPanel.GetChild(0).GetChildren())
+			{
+				child.Text = "";
+			}
+			DetailsPanel.Visible = false;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -135,7 +136,7 @@ public partial class InventorySlot : Control
 	}
 	public void ItemButtonMouseEntered()
 	{
-		if (DetailsPanel.GetChild(0) is Label nameLabel && nameLabel.Text != "")
+		if (DetailsPanel.GetChild(0).GetChild(0) is Label nameLabel && nameLabel.Text != "")
 		{
 			DetailsPanel.Visible = true;
 		}

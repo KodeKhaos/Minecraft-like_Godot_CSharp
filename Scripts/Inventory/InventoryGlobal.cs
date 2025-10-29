@@ -70,56 +70,8 @@ public partial class InventoryGlobal : Node
 	{
 		// TODO: Implement my add item logic here
 	}
-
-	public void DropItemFromHotbar(int hotbar_slot, int amount)
+	public void DropItemFromInventory(Godot.Collections.Dictionary<string, Variant> dragged_item)
 	{
-		AddItemFromHotbarToWorld(hotbar_slot, amount);
-		RemoveItemFromHotbar(hotbar_slot, amount);
 		EmitSignal(SignalName.RefreshInventory);
-	}
-
-	public void AddItemFromHotbarToWorld(int hotbar_slot, int amount)
-	{
-
-	}
-
-	public void RemoveItemFromHotbar(int hotbar_slot, int amount)
-	{
-		if ((int)HotbarInventory[hotbar_slot]["amount"] > amount)
-		{
-			int hotbarAmount = (int)HotbarInventory[hotbar_slot]["amount"];
-			hotbarAmount -= amount;
-			HotbarInventory[hotbar_slot]["amount"] = hotbarAmount;
-		}
-		else
-		{
-			HotbarInventory[hotbar_slot] = null;
-		}
-	}
-
-	public void DropItemFromInventory(int inventory_slot, int amount)
-	{
-		AddItemFromInventoryToWorld(inventory_slot, amount);
-		RemoveItemFromInventory(inventory_slot, amount);
-		EmitSignal(SignalName.RefreshInventory);
-	}
-
-	public void AddItemFromInventoryToWorld(int inventory_slot, int amount)
-	{
-
-	}
-
-	public void RemoveItemFromInventory(int inventory_slot, int amount)
-	{
-		if ((int)Inventory[inventory_slot]["amount"] > amount)
-		{
-			int inventoryAmount = (int)Inventory[inventory_slot]["amount"];
-			inventoryAmount -= amount;
-			Inventory[inventory_slot]["amount"] = inventoryAmount;
-		}
-		else
-		{
-			Inventory[inventory_slot] = null;
-		}
 	}
 }

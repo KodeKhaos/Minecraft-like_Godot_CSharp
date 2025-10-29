@@ -17,8 +17,7 @@ public partial class InventoryPanel : Panel
 	}
 	public void InputEventMouseExit()
 	{
-		var mouse_selector = GetParent().GetNode<MouseSelector>("Mouse Selector");
-		mouse_selector.hovered_slot = -2;
+		
 	}
 
 	public void InputEventMouseClick(InputEvent @event)
@@ -26,7 +25,6 @@ public partial class InventoryPanel : Panel
 		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
 		{
 			var mouse_selector = GetParent().GetNode<MouseSelector>("Mouse Selector");
-			mouse_selector.hovered_slot = -1;
 		}
 	}
 }

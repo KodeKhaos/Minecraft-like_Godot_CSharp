@@ -52,7 +52,7 @@ public partial class MouseSelector : Control
 			temp = hovered_slot;
 			temp2 = item_slot;
 		}
-		
+
 		Visible = has_item;
 		var mouse_position = GetGlobalMousePosition();
 		Position = mouse_position;
@@ -143,19 +143,12 @@ public partial class MouseSelector : Control
 		GD.Print("Set item data: ", item, " amount: ", amount, " from hotbar: ", item_from_hotbar);
 	}
 
-	private void DropItem()
-	{
-		InventoryGlobal.Instance.EmitSignal(InventoryGlobal.SignalName.RefreshInventory);
-		ClearMouseSelector();
-	}
 	private void HandleDrop()
 	{
 		if (hovered_slot < 0)
 		{
 			DropItemFromInventory();
-			DropItem();
-			if (hovered_slot == -1)
-				GD.Print("Hovered slot was 1!! wtf is going on???");
+			ClearMouseSelector();
 			return;
 		}
 		else if (item_slot > -1)
@@ -168,42 +161,16 @@ public partial class MouseSelector : Control
 			{
 				HandleInventoryDrop();
 			}
-
-			DropItem();
+			ClearMouseSelector();
+		}
+		else
+		{
+			GD.PrintErr("Couldn't drop item ", dragged_item, " to slot ", hovered_slot);
 		}
 	}
 	private void DropItemFromInventory()
 	{
-		if (item_from_hotbar)
-		{
-			if (InventoryGlobal.Instance.HotbarInventory[item_slot] != null)
-			{
-				int amount = (int)InventoryGlobal.Instance.HotbarInventory[item_slot]["amount"];
-				amount += (int)dragged_item["amount"];
-				InventoryGlobal.Instance.HotbarInventory[item_slot]["amount"] = amount;
-			}
-			else
-			{
-				InventoryGlobal.Instance.HotbarInventory[item_slot] = dragged_item;
-			}
-			InventoryGlobal.Instance.DropItemFromHotbar(item_slot, (int)dragged_item["amount"]);
-			InventoryGlobal.Instance.HotbarInventory[item_slot] = null;
-		}
-		else
-		{
-			if (InventoryGlobal.Instance.Inventory[item_slot] != null)
-			{
-				int amount = (int)InventoryGlobal.Instance.Inventory[item_slot]["amount"];
-				amount += (int)dragged_item["amount"];
-				InventoryGlobal.Instance.Inventory[item_slot]["amount"] = amount;
-			}
-			else
-			{
-				InventoryGlobal.Instance.Inventory[item_slot] = dragged_item;
-			}
-			InventoryGlobal.Instance.DropItemFromInventory(item_slot, (int)dragged_item["amount"]);
-			InventoryGlobal.Instance.Inventory[item_slot] = null;
-		}
+		InventoryGlobal.Instance.DropItemFromInventory(dragged_item);
 	}
 
 	private void HandleHotbarDrop()
